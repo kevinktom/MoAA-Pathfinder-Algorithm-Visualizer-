@@ -25,9 +25,13 @@ MoAA will have a single page canvas. The User can select the different algorithm
 ## Timeline
 -----------
 Tuesday - Research D3 and MDN Dom Manipulation and familiarize myself with the searching algorithms
+
 Wednesday - Create the canvas and framework for how the nodes behave
+
 Thursday - Implement functionality of each algorithm
+
 Friday - Create ability for users to create walls and the generate and clear buttons
+
 Weekend - Polish up core functionality and work on bonus features
 
 ## Bonus Features
