@@ -21,7 +21,6 @@ MoAA will have a single page canvas. The User can select the different algorithm
 ---------------------------------
 * Vanilla Javascript
 * D3 for visualization
-* React
 
 ## Timeline
 -----------
