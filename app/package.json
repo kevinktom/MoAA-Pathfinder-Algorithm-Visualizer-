@@ -1,0 +1,31 @@
+{
+  "name": "MoAA",
+  "version": "1.0.0",
+  "description": "## Overview ----------- MoAA which stands for Museum of Algorithmic Art is a Path Finder project that showcases the performances of search algorithms. A start and end point can be selected by the User as well as any walls that may block certain nodes. The User is able to select an algorithm and generate a visualization of an algorithm reaching the end point from the start. The canvas starts off blank and once the User clicks to generate, the selected algorithm begins to traverse through the maze.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --mode=development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevinktom/MoAA.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kevinktom/MoAA/issues"
+  },
+  "homepage": "https://github.com/kevinktom/MoAA#readme",
+  "dependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
+    "babel-loader": "^8.0.6",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9"
+  }
+}
