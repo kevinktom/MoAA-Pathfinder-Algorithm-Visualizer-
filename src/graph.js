@@ -1,17 +1,17 @@
 import * as d3 from "d3";
 
 
-export default createGraph = () => {
+const createGraph = () => {
     let w = 400;
     let h = 400;
     
     let grapher = d3.select('#app').append("svg:svg").attr("width", w).attr("height", h);
     
-    for (var j = 25; j <= width - 25; j += 25) {
+    for (var j = 25; j <= w - 25; j += 25) {
         grapher.append("svg:line")
         .attr("x1", 25)
         .attr("y1", j)
-        .attr("x2", width - 25)
+        .attr("x2", w - 25)
         .attr("y2", j)
         .style("stroke", "black")
         .style("stroke-width", 2);
@@ -39,3 +39,5 @@ export default createGraph = () => {
         //         .style("fill", "#fff")
         //         .style("stroke", "#222");
         // }
+
+export default createGraph;
