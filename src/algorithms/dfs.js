@@ -6,8 +6,9 @@ function depthFirstSearch(graph) {
     let stack = [graph.starting];
 
     while (stack.length) {
-        
+
         let node = stack.pop();
+        if (node === graph.ending) break;
 
         // if this node has already been visited, then skip this node
         if (visited.has(node)) continue;
