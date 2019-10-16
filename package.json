@@ -1,18 +1,24 @@
 {
-  "name": "MoAA",
+  "name": "moaa",
   "version": "1.0.0",
   "description": "## Overview ----------- MoAA which stands for Museum of Algorithmic Art is a Path Finder project that showcases the performances of search algorithms. A start and end point can be selected by the User as well as any walls that may block certain nodes. The User is able to select an algorithm and generate a visualization of an algorithm reaching the end point from the start. The canvas starts off blank and once the User clicks to generate, the selected algorithm begins to traverse through the maze.",
   "main": "index.js",
+  "browserslist": [
+    "last 1 version",
+    "> 1%",
+    "maintained node versions",
+    "not dead"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --mode=development"
+    "start": "webpack-dev-server --config webpack.dev.js",
+    "webpack:watch": "webpack --watch --config webpack.dev.js",
+    "webpack:build": "webpack --config webpack.prod.js  --optimize-minimize"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kevinktom/MoAA.git"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Kevin Tom",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/kevinktom/MoAA/issues"
@@ -21,15 +27,19 @@
   "dependencies": {
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
-    "@babel/preset-react": "^7.6.3",
+    "autoprefixer": "^9.6.5",
     "babel-loader": "^8.0.6",
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2",
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.9"
-  },
-  "devDependencies": {
     "css-loader": "^3.2.0",
-    "style-loader": "^1.0.0"
+    "fibers": "^4.0.1",
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.12.0",
+    "postcss-loader": "^3.0.0",
+    "sass": "^1.23.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.2",
+    "webpack-merge": "^4.2.2"
   }
 }
