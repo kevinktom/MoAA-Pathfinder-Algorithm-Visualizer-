@@ -5,9 +5,7 @@ import depthFirstSearch from './algorithms/dfs';
 import reset from './algorithms/reset';
 
 window.addEventListener('DOMContentLoaded', () => {
-    // document.getElementById('app').innerText = "Hello World!";
     init();
-    // debugger
     canvas = document.getElementById("app");
     ctx = canvas.getContext("2d");
     canvas.onmousedown = mouseDown;
@@ -20,19 +18,11 @@ window.addEventListener('DOMContentLoaded', () => {
     clear.onclick = () => {
         reset(graph);
     }
-    
-    // canvas.onmousedown(function(e){mouseDown(e)})
-    // canvas.addEventListener('click', () => {
-    //     canvas.onmousedown = mouseDown;
-    // })
-    // canvas.addEventListener('mousedown',mouseDown);
-    
+
 });
 
-// window.addEventListener('click', mouseDown)
 
 let canvas
-// debugger
 let ctx
 
 let WIDTH = 1200;
@@ -47,25 +37,11 @@ let graphColumns = 40;
 let boundX = 0;
 let boundY = 0;
 
-// let graph = new GraphNodes.GraphNodes();
+
 let graph = new GraphNodes();
-// console.log(graph);
-
-// let tiles = [];
-// for (let c = 0; c < graphColumns; c++){
-//     tiles[c] = [];
-//     for (let r = 0; r < graphRows; r++){
-//         tiles[c][r] = {x: c*(nodeW+3), y: r*(nodeH+3), state: 10}; //empty
-//     }
-// }
-
-// tiles[0][0].state = 's'; //start
-// tiles[graphColumns-1][graphRows-1].state = 'f'; //finish
 
 graph.nodes[0][0].val = 1;
 graph.nodes[graphColumns-1][graphRows-1].val = 2;
-
-
 
 function rect(x,y,w,h, state){
     if (state === 1){ //start
@@ -90,18 +66,6 @@ function rect(x,y,w,h, state){
     ctx.fill();
 }
 
-// function draw(){
-//     // ctx.fillStyle = "#black";
-//     // rect(10,10,10,10);
-//     clear();
-
-//     for (let c = 0; c < graphColumns; c++) {
-//         for (let r = 0; r < graphRows; r++) {
-//             rect(tiles[c][r].x, tiles[c][r].y, nodeW, nodeH, tiles[c][r].state);
-//         }
-//     }
-// }
-
 function draw(){
     // ctx.fillStyle = "#black";
     // rect(10,10,10,10);
@@ -114,44 +78,27 @@ function draw(){
     }
 }
 
-// function draw(){
-//     for (let c = 0; c < graphColumns; c++) {
-//         for (let r = 0; r < graphRows; r++) {
-//             ctx.fillStyle = "#AAAAAA";
-//             ctx.fillRect(10*c, 10*r, 10, 10)
-//         }
-//     }
-// }
-
 function clear(){
     // debugger
     ctx.clearRect(0,0,WIDTH, HEIGHT)
 }
 
-
-
-
-
 function init(){
     canvas = document.getElementById("app");
     ctx = canvas.getContext("2d");
-    // canvas.addEventListener('mousedown', mouseDown);
-    // debugger
+
     return setInterval(draw,10);
 }
 
 function mouseDown(e){
     canvas.onmousemove = myMove;
 
-    // let x = e.pageX - canvas.offsetLeft;
-    // let y = e.pageY - canvas.offsetTop;
 
     let position = getMousePosition(canvas, e);// next three lines possibly unecessary
     let posx = position.x;
     let posy = position.y;
 
-    // debugger
-    // console.log(posx, posy);
+
     for (let c = 0; c < graphColumns; c++){
         for (let r=0; r < graphRows; r++){
             if ((c*(nodeW+3) < posx) 
@@ -172,7 +119,6 @@ function mouseDown(e){
             }
         }
     }
-    // draw();
 }
 
 function myMove(e){
@@ -180,8 +126,7 @@ function myMove(e){
     let posx = position.x;
     let posy = position.y;
 
-    // debugger
-    // console.log(posx, posy);
+
     for (let c = 0; c < graphColumns; c++) {
         for (let r = 0; r < graphRows; r++) {
             if ((c * (nodeW + 3) < posx)
@@ -215,6 +160,5 @@ function getMousePosition(canv, event){
         y: event.clientY - box.top
     };
 }
-// init();
-// canvas.onmousedown = mouseDown;
+
 
