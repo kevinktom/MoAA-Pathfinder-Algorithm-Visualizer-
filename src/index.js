@@ -1,6 +1,8 @@
 // import './styles/index.scss';
 // import './graph.js';
 import GraphNodes from './graphNodes.js';
+import depthFirstSearch from './algorithms/dfs';
+import reset from './algorithms/reset';
 
 window.addEventListener('DOMContentLoaded', () => {
     // document.getElementById('app').innerText = "Hello World!";
@@ -10,6 +12,15 @@ window.addEventListener('DOMContentLoaded', () => {
     ctx = canvas.getContext("2d");
     canvas.onmousedown = mouseDown;
     canvas.onmouseup = mouseUp;
+    let dfs = document.getElementById("dfs");
+    dfs.onclick = () => {
+        depthFirstSearch(graph);
+    }
+    let clear = document.getElementById("reset");
+    clear.onclick = () => {
+        reset(graph);
+    }
+    
     // canvas.onmousedown(function(e){mouseDown(e)})
     // canvas.addEventListener('click', () => {
     //     canvas.onmousedown = mouseDown;
@@ -55,18 +66,22 @@ graph.nodes[0][0].val = 1;
 graph.nodes[graphColumns-1][graphRows-1].val = 2;
 
 
+
 function rect(x,y,w,h, state){
-    if (state === 1){
+    if (state === 1){ //start
         ctx.fillStyle = "#75E170";
     }
-    else if (state === 2){
+    else if (state === 2){ //end
         ctx.fillStyle = "#FC7272";
     }
-    else if (state === 10){
+    else if (state === 10){ //unvisited
         ctx.fillStyle = "#EEEEDD";
     }
-    else if (state === 50){
+    else if (state === 50){ //walls
         ctx.fillStyle = '#1212A5';
+    }
+    else if (state === 75){ //visited
+        ctx.fillStyle = '#50FFF7';
     }
 
     ctx.beginPath();
@@ -112,6 +127,8 @@ function clear(){
     // debugger
     ctx.clearRect(0,0,WIDTH, HEIGHT)
 }
+
+
 
 
 
