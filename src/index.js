@@ -5,11 +5,13 @@ import breadthFirstSearch from './algorithms/bfs';
 
 import reset from './buttons/reset';
 import keepwalls from './buttons/keepwalls';
+import enableWalls from './buttons/enableWalls';
 
 window.addEventListener('DOMContentLoaded', () => {
+    let wallsEnabled = false;
+    let canvas = document.getElementById("app");
+    let ctx = canvas.getContext("2d");
     init();
-    canvas = document.getElementById("app");
-    ctx = canvas.getContext("2d");
     canvas.onmousedown = mouseDown;
     canvas.onmouseup = mouseUp;
     let dfs = document.getElementById("dfs");
@@ -22,8 +24,8 @@ window.addEventListener('DOMContentLoaded', () => {
         breadthFirstSearch(graph, draw);
     }
 
-    let clear = document.getElementById("reset");
-    clear.onclick = () => {
+    let resetbutton = document.getElementById("reset");
+    resetbutton.onclick = () => {
         reset(graph);
     }
 
@@ -32,11 +34,21 @@ window.addEventListener('DOMContentLoaded', () => {
         keepwalls(graph);
     }
 
-});
+
+    let ewall = document.getElementById("addwalls");
+    ewall.onclick = () => {
+        // enableWalls(wallsEnabled);
+        wallsEnabled = !wallsEnabled;
+    }
+
+// });
 
 
-let canvas
-let ctx
+// let canvas
+// let ctx
+// let wallsEnabled = false;
+
+
 
 let WIDTH = 1200;
 let HEIGHT = 800;
@@ -49,6 +61,7 @@ let graphColumns = 40;
 
 let boundX = 0;
 let boundY = 0;
+
 
 
 let graph = new GraphNodes();
@@ -106,7 +119,7 @@ function init(){
 
 function mouseDown(e){
     canvas.onmousemove = myMove;
-
+    // debugger
 
     let position = getMousePosition(canvas, e);// next three lines possibly unecessary
     let posx = position.x;
@@ -120,12 +133,12 @@ function mouseDown(e){
             && (r*(nodeH+3) < posy) 
             && (posy < r*(nodeH+3)+nodeH)) {
 
-                if (graph.nodes[c][r].val === 10){ //if empty make it a wall ()
+                if (graph.nodes[c][r].val === 10 && wallsEnabled === true){ //if empty make it a wall ()
                     graph.nodes[c][r].val = 50;
                     boundX = c;
                     boundY = r;
                 }
-                else if (graph.nodes[c][r].val === 50){
+                else if (graph.nodes[c][r].val === 50 && wallsEnabled === true){
                     graph.nodes[c][r].val = 10;
                     boundX = c;
                     boundY = r;
@@ -148,12 +161,12 @@ function myMove(e){
                 && (r * (nodeH + 3) < posy)
                 && (posy < r * (nodeH + 3) + nodeH)) {
 
-                if (graph.nodes[c][r].val === 10 && (c !== boundX || r !== boundY)) { //if empty make it a wall ()
+                if (graph.nodes[c][r].val === 10 && (c !== boundX || r !== boundY) && wallsEnabled === true) { //if empty make it a wall ()
                     graph.nodes[c][r].val = 50;
                     boundX = c;
                     boundY = r;
                 }
-                else if (graph.nodes[c][r].val === 50 && (c !== boundX || r !== boundY)) {
+                else if (graph.nodes[c][r].val === 50 && (c !== boundX || r !== boundY) && wallsEnabled === true) {
                     graph.nodes[c][r].val = 10;
                     boundX = c;
                     boundY = r;
@@ -174,5 +187,5 @@ function getMousePosition(canv, event){
         y: event.clientY - box.top
     };
 }
-
+});
 

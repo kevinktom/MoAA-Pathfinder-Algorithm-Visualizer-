@@ -38,7 +38,7 @@ function breadthFirstSearch(graph, draw) {
                 queue.push(neighbor)
             }
         })
-        debugger
+        // debugger
         if (node.val === 10) {
             node.val = 75;
         }
