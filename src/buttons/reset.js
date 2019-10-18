@@ -6,7 +6,11 @@ function reset(graph) {
             node.val = 10;
         })
     })
-    graph.nodes[0][0].val = 1;
+    // graph.nodes[0][0].val = 1;
+    // debugger
+    // graph.nodes[0][0] = graph.starting;
+    graph.starting = graph.nodes[0][0];
+    graph.starting.val = 1;
     graph.nodes[graphColumns - 1][graphRows - 1].val = 2;
 }
 

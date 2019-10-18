@@ -5,7 +5,7 @@ import breadthFirstSearch from './algorithms/bfs';
 
 import reset from './buttons/reset';
 import keepwalls from './buttons/keepwalls';
-import enableWalls from './buttons/enableWalls';
+// import enableWalls from './buttons/enableWalls';
 
 window.addEventListener('DOMContentLoaded', () => {
     let wallsEnabled = false;
@@ -39,6 +39,7 @@ window.addEventListener('DOMContentLoaded', () => {
     ewall.onclick = () => {
         // enableWalls(wallsEnabled);
         wallsEnabled = !wallsEnabled;
+        ewall.classList.toggle("clicked");
     }
 
 // });
@@ -117,6 +118,8 @@ function init(){
     return setInterval(draw,10);
 }
 
+let currentStart = graph.starting;
+
 function mouseDown(e){
     canvas.onmousemove = myMove;
     // debugger
@@ -124,6 +127,7 @@ function mouseDown(e){
     let position = getMousePosition(canvas, e);// next three lines possibly unecessary
     let posx = position.x;
     let posy = position.y;
+
 
 
     for (let c = 0; c < graphColumns; c++){
@@ -143,6 +147,18 @@ function mouseDown(e){
                     boundX = c;
                     boundY = r;
                 }
+                else if (wallsEnabled === false && graph.nodes[c][r] !== 2 && graph.nodes[c][r] === 1) {
+                    // debugger
+                    currentStart.val = 10;
+                    graph.nodes[c][r].val = 1;
+                    currentStart = graph.nodes[c][r];
+                    graph.starting = currentStart;
+                    // debugger
+                    boundX = c;
+                    boundY = r;
+                }
+                
+                
             }
         }
     }
@@ -152,6 +168,7 @@ function myMove(e){
     let position = getMousePosition(canvas, e);// next three lines possibly unecessary
     let posx = position.x;
     let posy = position.y;
+    // let currentStart = graph.starting;
 
 
     for (let c = 0; c < graphColumns; c++) {
@@ -168,6 +185,30 @@ function myMove(e){
                 }
                 else if (graph.nodes[c][r].val === 50 && (c !== boundX || r !== boundY) && wallsEnabled === true) {
                     graph.nodes[c][r].val = 10;
+                    boundX = c;
+                    boundY = r;
+                }
+                // else if (wallsEnabled === false){
+                //     currentStart.val = 10;
+                //     graph.nodes[c][r].val = 1;
+                //     currentStart = graph.nodes[c][r];
+                //     // debugger
+                //     boundX = c;
+                //     boundY = r;
+                // }
+
+                else if (wallsEnabled === false && graph.nodes[c][r] !== 2 
+                    // && ((currentStart.x * (nodeW + 1) < posx)
+                    // && (posx < currentStart.x * (nodeW + 3) + 3* nodeW)
+                    // && (posy > currentStart.y * (nodeH + 1))
+                    // && (posy < currentStart.y * (nodeH + 3) + 3* nodeH)
+                    ) {
+                    // debugger
+                    currentStart.val = 10;
+                    graph.nodes[c][r].val = 1;
+                    currentStart = graph.nodes[c][r];
+                    graph.starting = currentStart;
+                    // debugger
                     boundX = c;
                     boundY = r;
                 }
