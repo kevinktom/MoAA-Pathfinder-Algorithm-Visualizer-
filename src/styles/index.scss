@@ -1,6 +1,7 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
     margin: 0 auto;
+    background: #7f9c96;
 }
 
 #sidepanel{
@@ -15,7 +16,7 @@ body{
     position: relative;
     left: 28px;
     border-radius: 3px;
-    background: #E7FFCD;
+    background: #4d7c8a;
 }
 
 button{
@@ -46,14 +47,15 @@ button:focus {outline:0}
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
     font-size: 45px;
+    position: relative;
+    left: 200px;
 }
 
 #footer{
     height: 80px;
     width: 100%;
-    background-color: grey;
+    background-color: #1b4079;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -64,5 +66,6 @@ button:focus {outline:0}
 .clicked{
     background: grey;
     color: white;
+    border: grey;
 }
 

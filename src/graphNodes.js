@@ -84,6 +84,7 @@ class Node{
         this.neighbors = [];
         this.xpos = xpos;
         this.ypos = ypos;
+        this.weight = 0;
         // this.visited = false;
     }
 };
