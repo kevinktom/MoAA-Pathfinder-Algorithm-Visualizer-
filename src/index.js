@@ -1,10 +1,10 @@
-// import './styles/index.scss';
-// import './graph.js';
+import './styles/index.scss';
 import GraphNodes from './graphNodes.js';
 import depthFirstSearch from './algorithms/dfs';
 import breadthFirstSearch from './algorithms/bfs';
 
-import reset from './algorithms/reset';
+import reset from './buttons/reset';
+import keepwalls from './buttons/keepwalls';
 
 window.addEventListener('DOMContentLoaded', () => {
     init();
@@ -25,6 +25,11 @@ window.addEventListener('DOMContentLoaded', () => {
     let clear = document.getElementById("reset");
     clear.onclick = () => {
         reset(graph);
+    }
+
+    let wallsremain = document.getElementById("keepwalls");
+    wallsremain.onclick = () => {
+        keepwalls(graph);
     }
 
 });

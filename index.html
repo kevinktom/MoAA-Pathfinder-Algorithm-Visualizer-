@@ -12,10 +12,17 @@
 </head>
 
 <body>
-    <canvas id="app" width='1200' height= '800'></canvas>
-    <button id="dfs">DFS</button>
-    <button id="bfs">BFS</button>
-    <button id="reset" >Clear</button>
+    <div id="header">Pathfinder Algorithm Visualizer</div>
+    <div id="main">
+        <canvas id="app" width='1000' height= '700'></canvas>
+        <div id="sidepanel">
+            <button id="dfs">DFS</button>
+            <button id="bfs">BFS</button>
+            <button id="reset" >Clear</button>
+            <button id="keepwalls" >Clear Path Keep Walls</button>
+        </div>
+    </div>
+    <div id="footer"></div>
 </body>
 
 </html>
