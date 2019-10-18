@@ -41,7 +41,7 @@ class GraphNodes{
 
     determineNeighbors(nodes){
         
-        const positions = [[-1,0],[1,1],[-1,-1],[0,-1],[1,-1],[-1,1],[0,1],[1,0]]
+        const positions = [[1,-1],[-1,1],[-1,-1],[1,1],[0,-1],[-1,0],[0,1],[1,0]]
         let flattened = nodes.myFlatten();
         // debugger
         flattened.forEach(function(node){

@@ -7,7 +7,10 @@ function depthFirstSearch(graph, draw) {
     let interval = null;
 
     function addToStack(){
-        let node = stack[stack.length - 1];
+        let node
+        if (stack.length > 0){
+            node = stack[stack.length - 1];
+        }
         if (stack[0] === graph.starting){
             // debugger
             node = graph.starting
@@ -18,6 +21,7 @@ function depthFirstSearch(graph, draw) {
             // debugger
             stack = [];//clearing stack once it ends. maybe delete this to show history
             draw()
+            console.log("made it to the end")
             return;
         } else if (visited.has(node)) {
             return;
@@ -26,11 +30,11 @@ function depthFirstSearch(graph, draw) {
         console.log(stack)
         console.log(visited)
         console.log("----------------------")
-        console.log(graph.ending)
+        // console.log(graph.ending)
         visited.add(node);
         // stack.push(...node.neighbors);
         node.neighbors.forEach(neighbor => {
-            if (!visited.has(neighbor)){
+            if (!visited.has(neighbor) && neighbor.val !== 50){
                 stack.push(neighbor)
             }
         })
@@ -43,6 +47,7 @@ function depthFirstSearch(graph, draw) {
     
     interval = setInterval(addToStack, 40)
     console.log("donezo");
+    // debugger
 }
 
 export default depthFirstSearch;
