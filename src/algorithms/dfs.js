@@ -34,7 +34,7 @@ function depthFirstSearch(graph, draw) {
         visited.add(node);
         // stack.push(...node.neighbors);
         node.neighbors.forEach(neighbor => {
-            if (!visited.has(neighbor) && neighbor.val !== 50){
+            if (!visited.has(neighbor) && neighbor.val !== 50 && !stack.includes(neighbor)){
                 stack.push(neighbor)
             }
         })

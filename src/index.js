@@ -2,6 +2,8 @@
 // import './graph.js';
 import GraphNodes from './graphNodes.js';
 import depthFirstSearch from './algorithms/dfs';
+import breadthFirstSearch from './algorithms/bfs';
+
 import reset from './algorithms/reset';
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -14,6 +16,12 @@ window.addEventListener('DOMContentLoaded', () => {
     dfs.onclick = () => {
         depthFirstSearch(graph, draw);
     }
+
+    let bfs = document.getElementById("bfs");
+    bfs.onclick = () => {
+        breadthFirstSearch(graph, draw);
+    }
+
     let clear = document.getElementById("reset");
     clear.onclick = () => {
         reset(graph);
