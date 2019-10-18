@@ -30,13 +30,15 @@ window.addEventListener('DOMContentLoaded', () => {
     let resetbutton = document.getElementById("reset");
     resetbutton.onclick = () => {
         reset(graph);
-        currentStart = graph.nodes[0][0]
+        currentStart = graph.nodes[0][0];
+        currentEnd = graph.nodes[39][24];
     }
 
     let wallsremain = document.getElementById("keepwalls");
     wallsremain.onclick = () => {
         keepwalls(graph);
-        currentStart = graph.nodes[0][0]
+        currentStart = graph.nodes[0][0];
+        currentEnd = graph.nodes[39][24];
     }
 
 
@@ -124,6 +126,7 @@ function init(){
 }
 
 let currentStart = graph.starting;
+let currentEnd = graph.ending;
 
 function mouseDown(e){
     canvas.onmousemove = myMove;
@@ -164,6 +167,21 @@ function mouseDown(e){
                     graph.nodes[c][r].val = 1;
                     currentStart = graph.nodes[c][r];
                     graph.starting = currentStart;
+                    // debugger
+                    boundX = c;
+                    boundY = r;
+                }
+                else if (wallsEnabled === false && graph.nodes[c][r].val !== 1 && graph.nodes[c][r].val === 2
+                    && ((currentEnd.x * (nodeW + 3) < posx)
+                    && (posx < currentEnd.x * (nodeW + 3) + nodeW)
+                    && (posy > currentEnd.y * (nodeH + 3))
+                    && (posy < currentEnd.y * (nodeH + 3) + nodeH))
+                    ) {
+                    // debugger
+                    currentEnd.val = 10;
+                    graph.nodes[c][r].val = 2;
+                    currentEnd = graph.nodes[c][r];
+                    graph.ending = currentEnd;
                     // debugger
                     boundX = c;
                     boundY = r;
@@ -220,6 +238,22 @@ function myMove(e){
                     graph.nodes[c][r].val = 1;
                     currentStart = graph.nodes[c][r];
                     graph.starting = currentStart;
+                    // debugger
+                    boundX = c;
+                    boundY = r;
+                }
+                else if (wallsEnabled === false && graph.nodes[c][r].val !== 1 
+                    && ((currentEnd.x * (nodeW + 1) < posx)
+                    && (posx < currentEnd.x * (nodeW + 3) + 3* nodeW)
+                    && (posy > currentEnd.y * (nodeH + 1))
+                    && (posy < currentEnd.y * (nodeH + 3) + 3* nodeH)
+                    
+                    )) {
+                    // debugger
+                    currentEnd.val = 10;
+                    graph.nodes[c][r].val = 2;
+                    currentEnd = graph.nodes[c][r];
+                    graph.ending = currentEnd;
                     // debugger
                     boundX = c;
                     boundY = r;
