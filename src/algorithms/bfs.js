@@ -16,6 +16,7 @@ function breadthFirstSearch(graph, draw) {
             node = graph.starting
         }
         if (node === graph.ending || queue.length === 0) {
+            // debugger
             clearInterval(interval);
             // other logice`
             // debugger

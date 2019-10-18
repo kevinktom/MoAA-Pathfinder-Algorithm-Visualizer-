@@ -14,6 +14,9 @@ window.addEventListener('DOMContentLoaded', () => {
     init();
     canvas.onmousedown = mouseDown;
     canvas.onmouseup = mouseUp;
+    canvas.ondragstart = function(){
+        return false;
+    }
     let dfs = document.getElementById("dfs");
     dfs.onclick = () => {
         depthFirstSearch(graph, draw);
@@ -27,11 +30,13 @@ window.addEventListener('DOMContentLoaded', () => {
     let resetbutton = document.getElementById("reset");
     resetbutton.onclick = () => {
         reset(graph);
+        currentStart = graph.nodes[0][0]
     }
 
     let wallsremain = document.getElementById("keepwalls");
     wallsremain.onclick = () => {
         keepwalls(graph);
+        currentStart = graph.nodes[0][0]
     }
 
 
@@ -122,6 +127,7 @@ let currentStart = graph.starting;
 
 function mouseDown(e){
     canvas.onmousemove = myMove;
+    // canvas.ondragstart = myMove;
     // debugger
 
     let position = getMousePosition(canvas, e);// next three lines possibly unecessary
@@ -147,7 +153,12 @@ function mouseDown(e){
                     boundX = c;
                     boundY = r;
                 }
-                else if (wallsEnabled === false && graph.nodes[c][r] !== 2 && graph.nodes[c][r] === 1) {
+                else if (wallsEnabled === false && graph.nodes[c][r].val !== 2 && graph.nodes[c][r].val === 1
+                    && ((currentStart.x * (nodeW + 3) < posx)
+                    && (posx < currentStart.x * (nodeW + 3) + nodeW)
+                    && (posy > currentStart.y * (nodeH + 3))
+                    && (posy < currentStart.y * (nodeH + 3) + nodeH))
+                    ) {
                     // debugger
                     currentStart.val = 10;
                     graph.nodes[c][r].val = 1;
@@ -197,12 +208,13 @@ function myMove(e){
                 //     boundY = r;
                 // }
 
-                else if (wallsEnabled === false && graph.nodes[c][r] !== 2 
-                    // && ((currentStart.x * (nodeW + 1) < posx)
-                    // && (posx < currentStart.x * (nodeW + 3) + 3* nodeW)
-                    // && (posy > currentStart.y * (nodeH + 1))
-                    // && (posy < currentStart.y * (nodeH + 3) + 3* nodeH)
-                    ) {
+                else if (wallsEnabled === false && graph.nodes[c][r].val !== 2 
+                    && ((currentStart.x * (nodeW + 1) < posx)
+                    && (posx < currentStart.x * (nodeW + 3) + 3* nodeW)
+                    && (posy > currentStart.y * (nodeH + 1))
+                    && (posy < currentStart.y * (nodeH + 3) + 3* nodeH)
+                    
+                    )) {
                     // debugger
                     currentStart.val = 10;
                     graph.nodes[c][r].val = 1;
