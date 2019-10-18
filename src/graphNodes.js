@@ -5,7 +5,7 @@ class GraphNodes{
         this.nodeGenerator = this.nodeGenerator.bind(this);
         this.nodes = this.nodeGenerator();
         this.starting = this.nodes[0][0];
-        this.ending = this.nodes[19][19];
+        this.ending = this.nodes[39][24];
         // this.determineNeighbors();
         
     }
@@ -41,7 +41,7 @@ class GraphNodes{
 
     determineNeighbors(nodes){
         
-        const positions = [[1,0],[-1,0],[1,1],[-1,-1],[0,1],[0,-1],[1,-1],[-1,1]]
+        const positions = [[-1,0],[1,1],[-1,-1],[0,-1],[1,-1],[-1,1],[0,1],[1,0]]
         let flattened = nodes.myFlatten();
         // debugger
         flattened.forEach(function(node){
@@ -52,7 +52,7 @@ class GraphNodes{
                 let neighbor = [node.x + position[0], node.y + position[1]]
                 // console.log(neighbor)
                 // debugger
-                if (((neighbor[0]) >= 0 && (neighbor[0]) < 20 && (neighbor[1]) >= 0 && (neighbor[1]) < 20) && !node.neighbors.includes(nodes[neighbor[0]][neighbor[1]]) ){
+                if (((neighbor[0]) >= 0 && (neighbor[0]) < 40 && (neighbor[1]) >= 0 && (neighbor[1]) < 25) && !node.neighbors.includes(nodes[neighbor[0]][neighbor[1]]) ){
                     node.neighbors.push(nodes[neighbor[0]][neighbor[1]]);
                 }
 

@@ -12,7 +12,7 @@ window.addEventListener('DOMContentLoaded', () => {
     canvas.onmouseup = mouseUp;
     let dfs = document.getElementById("dfs");
     dfs.onclick = () => {
-        depthFirstSearch(graph);
+        depthFirstSearch(graph, draw);
     }
     let clear = document.getElementById("reset");
     clear.onclick = () => {
@@ -39,6 +39,7 @@ let boundY = 0;
 
 
 let graph = new GraphNodes();
+// debugger
 
 graph.nodes[0][0].val = 1;
 graph.nodes[graphColumns-1][graphRows-1].val = 2;
