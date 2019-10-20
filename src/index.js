@@ -2,6 +2,7 @@ import './styles/index.scss';
 import GraphNodes from './graphNodes.js';
 import depthFirstSearch from './algorithms/dfs';
 import breadthFirstSearch from './algorithms/bfs';
+import dijkstrasTraversal from './algorithms/dijkstras';
 
 import reset from './buttons/reset';
 import keepwalls from './buttons/keepwalls';
@@ -9,6 +10,7 @@ import keepwalls from './buttons/keepwalls';
 
 window.addEventListener('DOMContentLoaded', () => {
     let wallsEnabled = false;
+    let weightsEnabled = false;
     let canvas = document.getElementById("app");
     let ctx = canvas.getContext("2d");
     init();
@@ -25,6 +27,10 @@ window.addEventListener('DOMContentLoaded', () => {
     let bfs = document.getElementById("bfs");
     bfs.onclick = () => {
         breadthFirstSearch(graph, draw);
+    }
+    let dijkstras = document.getElementById("dijkstras");
+    dijkstras.onclick = () => {
+        dijkstrasTraversal(graph, graph.starting.key, draw);
     }
 
     let resetbutton = document.getElementById("reset");
@@ -47,6 +53,12 @@ window.addEventListener('DOMContentLoaded', () => {
         // enableWalls(wallsEnabled);
         wallsEnabled = !wallsEnabled;
         ewall.classList.toggle("clicked");
+    }
+
+    let weighter = document.getElementById("addweights");
+    weighter.onclick = () => {
+        weightsEnabled = !weightsEnabled;
+        weighter.classList.toggle("clicked");
     }
 
 // });
@@ -93,6 +105,9 @@ function rect(x,y,w,h, state){
     }
     else if (state === 75){ //visited
         ctx.fillStyle = '#50FFF7';
+    }
+    else if (state === 300){
+        ctx.fillStyle = '#FFFF00'
     }
 
     ctx.beginPath();
@@ -156,7 +171,21 @@ function mouseDown(e){
                     boundX = c;
                     boundY = r;
                 }
-                else if (wallsEnabled === false && graph.nodes[c][r].val !== 2 && graph.nodes[c][r].val === 1
+                else if (graph.nodes[c][r].val === 10 && weightsEnabled === true){
+                    graph.nodes[c][r].val = 300;
+                    graph.nodes[c][r].weight = 4;
+                    boundX = c;
+                    boundY = r;
+                }
+                else if (graph.nodes[c][r].val === 300 && weightsEnabled === true){
+                    graph.nodes[c][r].val = 10;
+                    graph.nodes[c][r].weight = 1;
+                    boundX = c;
+                    boundY = r;
+                }
+
+
+                else if (wallsEnabled === false && weightsEnabled === false && graph.nodes[c][r].val !== 2 && graph.nodes[c][r].val === 1
                     && ((currentStart.x * (nodeW + 3) < posx)
                     && (posx < currentStart.x * (nodeW + 3) + nodeW)
                     && (posy > currentStart.y * (nodeH + 3))
@@ -171,7 +200,7 @@ function mouseDown(e){
                     boundX = c;
                     boundY = r;
                 }
-                else if (wallsEnabled === false && graph.nodes[c][r].val !== 1 && graph.nodes[c][r].val === 2
+                else if (wallsEnabled === false && weightsEnabled === false && graph.nodes[c][r].val !== 1 && graph.nodes[c][r].val === 2
                     && ((currentEnd.x * (nodeW + 3) < posx)
                     && (posx < currentEnd.x * (nodeW + 3) + nodeW)
                     && (posy > currentEnd.y * (nodeH + 3))
@@ -217,6 +246,18 @@ function myMove(e){
                     boundX = c;
                     boundY = r;
                 }
+                else if (graph.nodes[c][r].val === 10 && (c !== boundX || r !== boundY) && weightsEnabled === true) {
+                    graph.nodes[c][r].val = 300;
+                    graph.nodes[c][r].weight = 4;
+                    boundX = c;
+                    boundY = r;
+                }
+                else if (graph.nodes[c][r].val === 300 && (c !== boundX || r !== boundY) && weightsEnabled === true) {
+                    graph.nodes[c][r].val = 10;
+                    graph.nodes[c][r].weight = 1;
+                    boundX = c;
+                    boundY = r;
+                }
                 // else if (wallsEnabled === false){
                 //     currentStart.val = 10;
                 //     graph.nodes[c][r].val = 1;
@@ -226,12 +267,12 @@ function myMove(e){
                 //     boundY = r;
                 // }
 
-                else if (wallsEnabled === false && graph.nodes[c][r].val !== 2 
+                else if (wallsEnabled === false && weightsEnabled === false && graph.nodes[c][r].val !== 2 
                     && ((currentStart.x * (nodeW + 1) < posx)
                     && (posx < currentStart.x * (nodeW + 3) + 3* nodeW)
                     && (posy > currentStart.y * (nodeH + 1))
                     && (posy < currentStart.y * (nodeH + 3) + 3* nodeH)
-                    
+                    && (c !== boundX || r !== boundY) //possibly affect dragging quality of start
                     )) {
                     // debugger
                     currentStart.val = 10;
@@ -242,12 +283,12 @@ function myMove(e){
                     boundX = c;
                     boundY = r;
                 }
-                else if (wallsEnabled === false && graph.nodes[c][r].val !== 1 
+                else if (wallsEnabled === false && weightsEnabled === false && graph.nodes[c][r].val !== 1 
                     && ((currentEnd.x * (nodeW + 1) < posx)
                     && (posx < currentEnd.x * (nodeW + 3) + 3* nodeW)
                     && (posy > currentEnd.y * (nodeH + 1))
                     && (posy < currentEnd.y * (nodeH + 3) + 3* nodeH)
-                    
+                    && (c !== boundX || r !== boundY) //possibly affect dragging quality of end
                     )) {
                     // debugger
                     currentEnd.val = 10;

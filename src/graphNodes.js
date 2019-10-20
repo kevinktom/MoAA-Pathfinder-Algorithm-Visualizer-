@@ -78,14 +78,14 @@ Array.prototype.myFlatten = function () {
 };
 class Node{
     constructor(val, [x,y], xpos, ypos){
-        this.val = val; // 10 === empty, 50 === wall, 1 === start, 2 === end, //75 === traversed
+        this.val = val; // 10 === empty, 50 === wall, 1 === start, 2 === end, //75 === traversed, //300 === weighted with 300
         this.key = `[${x}][${y}]`;
         this.x = x;
         this.y = y;
         this.neighbors = [];
         this.xpos = xpos;
         this.ypos = ypos;
-        this.weight = 0;
+        this.weight = 1;
         // this.visited = false;
     }
 };

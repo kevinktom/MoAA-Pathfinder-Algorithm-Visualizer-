@@ -77,9 +77,11 @@ function dijkstras(graph, source) {
 
     let adjList = {}
     graph.nodes.myFlatten().forEach(node => {
-        neibs = {}
+        let neibs = {}
         node.neighbors.forEach(neighbor => {
-            neibs[neighbor.key] = neighbor.weight;
+            if (neighbor.val !== 50){
+                neibs[neighbor.key] = neighbor.weight;
+            }
         })
         adjList[node.key] = neibs;
     })
@@ -120,5 +122,59 @@ function minDistanceNode(nodes, distance) {
     ));
 }
 
-export default dijkstras;
+function dijkstrasTraversal(graph, source, draw){
+    let {distance, previous} = dijkstras(graph, source)
+    let start = graph.starting;
+    let end = graph.ending;
+    let path = [end.key];
+    let interval = null;
+    let node = start;
+    
+    while(path[path.length - 1] !== start.key){
+        path.push(previous[path[path.length - 1]]);
+    }
+    path = path.reverse().slice(1);
+
+    Array.prototype.myFlatten = function () {
+        let flattened = [];
+        this.forEach((el) => {
+            if (el instanceof Array) {
+                flattened = flattened.concat(el.myFlatten());
+            } else {
+                flattened.push(el);
+            }
+        });
+        return flattened;
+    };
+
+    let allNodes = graph.nodes.myFlatten();
+
+    let pathNodes = []
+    path.forEach(key => {
+        allNodes.forEach(node => {
+            if(key === node.key){
+                pathNodes.push(node);
+            }
+        }
+    )})
+    function traversal(){
+        if (node === end || pathNodes.length === 0){
+            clearInterval(interval);
+            draw()
+            console.log("end of dijkstras")
+            return;
+        }
+        node = pathNodes.shift();
+
+        if (node.val === 10) {
+            node.val = 75;
+        }
+
+        draw();
+    }
+    interval = setInterval(traversal, 40)
+    console.log("done");
+}
+
+export default dijkstrasTraversal;
 
