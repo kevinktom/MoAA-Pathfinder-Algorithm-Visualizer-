@@ -35,16 +35,24 @@ window.addEventListener('DOMContentLoaded', () => {
 
     let resetbutton = document.getElementById("reset");
     resetbutton.onclick = () => {
-        reset(graph);
-        currentStart = graph.nodes[0][0];
-        currentEnd = graph.nodes[39][24];
+        reset(graph, currentStart, currentEnd);
+        // currentStart = graph.nodes[0][0];
+        // currentEnd = graph.nodes[39][24];
+        wallsEnabled = false;
+        ewall.classList.remove("clicked");
+        weightsEnabled = false;
+        weighter.classList.remove("clicked");
     }
 
     let wallsremain = document.getElementById("keepwalls");
     wallsremain.onclick = () => {
-        keepwalls(graph);
-        currentStart = graph.nodes[0][0];
-        currentEnd = graph.nodes[39][24];
+        keepwalls(graph, currentStart, currentEnd);
+        // currentStart = graph.nodes[0][0];
+        // currentEnd = graph.nodes[39][24];
+        wallsEnabled = false;
+        ewall.classList.remove("clicked");
+        weightsEnabled = false;
+        weighter.classList.remove("clicked");
     }
 
 
@@ -52,12 +60,16 @@ window.addEventListener('DOMContentLoaded', () => {
     ewall.onclick = () => {
         // enableWalls(wallsEnabled);
         wallsEnabled = !wallsEnabled;
+        weightsEnabled = false;
+        weighter.classList.remove("clicked");
         ewall.classList.toggle("clicked");
     }
 
     let weighter = document.getElementById("addweights");
     weighter.onclick = () => {
         weightsEnabled = !weightsEnabled;
+        wallsEnabled = false;
+        ewall.classList.remove("clicked");
         weighter.classList.toggle("clicked");
     }
 
