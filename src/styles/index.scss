@@ -2,6 +2,7 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     margin: 0 auto;
     background: #7f9c96;
+    width: 100vw;
 }
 
 #sidepanel{
@@ -49,7 +50,7 @@ button:focus {outline:0}
     align-items: center;
     font-size: 45px;
     position: relative;
-    left: 200px;
+    justify-content: center;
 }
 
 #footer{
@@ -61,6 +62,8 @@ button:focus {outline:0}
     justify-content: center;
     border-top: 1px solid #222;
     font-size: 16px;
+    bottom: 0;
+    position: absolute;
 }
 
 .clicked{
