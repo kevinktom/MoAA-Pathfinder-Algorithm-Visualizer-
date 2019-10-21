@@ -41,6 +41,10 @@ function depthFirstSearch(graph, draw) {
         if (node.val === 10) {
             node.val = 75;
         }
+        
+        else if (node.val === 300) {
+            node.val = 350;
+        }
 
         draw();
     }

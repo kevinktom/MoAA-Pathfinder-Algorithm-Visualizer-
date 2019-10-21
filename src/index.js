@@ -88,8 +88,8 @@ let HEIGHT = 800;
 let nodeW = 20;
 let nodeH = 20;
 
-let graphRows = 25;
-let graphColumns = 40;
+let graphRows = 31;
+let graphColumns = 56;
 
 let boundX = 0;
 let boundY = 0;
@@ -99,8 +99,8 @@ let boundY = 0;
 let graph = new GraphNodes();
 // debugger
 
-graph.nodes[0][0].val = 1;
-graph.nodes[graphColumns-1][graphRows-1].val = 2;
+graph.nodes[14][15].val = 1;
+graph.nodes[graphColumns-15][15].val = 2;
 
 function rect(x,y,w,h, state){
     if (state === 1){ //start
@@ -120,6 +120,9 @@ function rect(x,y,w,h, state){
     }
     else if (state === 300){
         ctx.fillStyle = '#FFFF00'
+    }
+    else if (state === 350){
+        ctx.fillStyle = '#FEB302'
     }
 
     ctx.beginPath();
@@ -185,7 +188,7 @@ function mouseDown(e){
                 }
                 else if (graph.nodes[c][r].val === 10 && weightsEnabled === true){
                     graph.nodes[c][r].val = 300;
-                    graph.nodes[c][r].weight = 4;
+                    graph.nodes[c][r].weight = 8;
                     boundX = c;
                     boundY = r;
                 }
@@ -260,7 +263,7 @@ function myMove(e){
                 }
                 else if (graph.nodes[c][r].val === 10 && (c !== boundX || r !== boundY) && weightsEnabled === true) {
                     graph.nodes[c][r].val = 300;
-                    graph.nodes[c][r].weight = 4;
+                    graph.nodes[c][r].weight = 8;
                     boundX = c;
                     boundY = r;
                 }

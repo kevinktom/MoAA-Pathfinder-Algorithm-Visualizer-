@@ -1,10 +1,14 @@
 function keepwalls(graph, currentStart, currentEnd) {
-    let graphRows = 25;
-    let graphColumns = 40;
+    // let graphRows = 25;
+    // let graphColumns = 40;
     graph.nodes.forEach(row => {
         row.forEach(node => {
-            if (node.val !== 50 && node.val !==300)
-            node.val = 10;
+            if (node.val !== 50 && node.val !==300 && node.val !== 350){
+                node.val = 10;
+            }
+            else if (node.val === 350) {
+                node.val = 300;
+            }
         })
     })
     // graph.nodes[0][0].val = 1;

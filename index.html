@@ -14,19 +14,29 @@
 <body>
     <div id="header">Pathfinder Algorithm Visualizer</div>
     <div id="main">
-        <canvas id="app" width='1000' height= '700'></canvas>
+        <div id="maindiv">
+            <canvas id="app" width='1300' height= '780'></canvas>
+            <img src="./app/assets/images/chart.png" id='legend'>
+        </div>
         <div id="sidepanel">
+            <div id="sidepanelAlgo">Algorithms</div>
             <button id="dfs">DFS</button>
             <button id="bfs">BFS</button>
             <button id="dijkstras">Dijkstra's Algorithm</button>
+            <div id='sidepanelButtons'>Actions</div>
             <button id="reset" >Clear</button>
             <button id="keepwalls" >Clear Path Only</button>
             <button id="addwalls">Add Walls</button>
             <button id="addweights">Add Weight</button>
-
         </div>
     </div>
-    <div id="footer">Contact Me: KevinKTom@gmail.com</div>
+    <div id="footer">
+        <div id="links">
+            <div id="contactcss">Contact Me: KevinKTom@gmail.com</div>
+            <a href="https://github.com/kevinktom"><img src="./app/assets/images/github_icon.png" alt=""></a>
+            <a href="https://www.linkedin.com/in/kevin-tom-b36951a9/"><img src="./app/assets/images/linkedin_logo.png" alt=""></a>
+        </div>
+    </div>
 </body>
 
 </html>

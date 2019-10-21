@@ -44,6 +44,10 @@ function breadthFirstSearch(graph, draw) {
             node.val = 75;
         }
 
+        else if (node.val === 300) {
+            node.val = 350;
+        }
+
         draw();
     }
 

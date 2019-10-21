@@ -1,6 +1,6 @@
 function reset(graph, currentStart, currentEnd) {
-    let graphRows = 25;
-    let graphColumns = 40;
+    // let graphRows = 25;
+    // let graphColumns = 40;
     graph.nodes.forEach(row => {
         row.forEach(node => {
             node.val = 10;
@@ -14,6 +14,7 @@ function reset(graph, currentStart, currentEnd) {
 
     graph.ending = currentEnd;
     graph.ending.val = 2;
+
     
     // window.stop();
 
