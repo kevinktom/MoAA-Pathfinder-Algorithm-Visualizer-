@@ -4,8 +4,8 @@ class GraphNodes{
         this.determineNeighbors = this.determineNeighbors.bind(this);
         this.nodeGenerator = this.nodeGenerator.bind(this);
         this.nodes = this.nodeGenerator();
-        this.starting = this.nodes[21][15];
-        this.ending = this.nodes[48][15];
+        this.starting = this.nodes[15][15];
+        this.ending = this.nodes[42][15];
         // this.determineNeighbors();
         
     }

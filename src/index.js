@@ -104,7 +104,7 @@ let boundY = 0;
 let graph = new GraphNodes();
 // debugger
 
-graph.nodes[21][15].val = 1;
+graph.nodes[15][15].val = 1;
 graph.nodes[graphColumns-15][15].val = 2;
 
 function rect(x,y,w,h, state){
