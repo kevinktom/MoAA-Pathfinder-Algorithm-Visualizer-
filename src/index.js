@@ -158,6 +158,9 @@ function init(){
 let currentStart = graph.starting;
 let currentEnd = graph.ending;
 
+let startDrag = false;
+let endDrag = false;
+
 function mouseDown(e){
     canvas.onmousemove = myMove;
     // canvas.ondragstart = myMove;
@@ -214,6 +217,8 @@ function mouseDown(e){
                     // debugger
                     boundX = c;
                     boundY = r;
+                    startDrag = true;
+                    // console.log(startDrag)
                 }
                 else if (wallsEnabled === false && weightsEnabled === false && graph.nodes[c][r].val !== 1 && graph.nodes[c][r].val === 2
                     && ((currentEnd.x * (nodeW + 3) < posx)
@@ -229,12 +234,15 @@ function mouseDown(e){
                     // debugger
                     boundX = c;
                     boundY = r;
+                    endDrag = true;
                 }
                 
                 
             }
         }
     }
+
+    // console.log(startDrag)
 }
 
 function myMove(e){
@@ -283,12 +291,10 @@ function myMove(e){
                 // }
 
                 else if (wallsEnabled === false && weightsEnabled === false && graph.nodes[c][r].val !== 2 
-                    && ((currentStart.x * (nodeW + 1) < posx)
-                    && (posx < currentStart.x * (nodeW + 3) + 3* nodeW)
-                    && (posy > currentStart.y * (nodeH + 1))
-                    && (posy < currentStart.y * (nodeH + 3) + 3* nodeH)
+                    
                     && (c !== boundX || r !== boundY) //possibly affect dragging quality of start
-                    )) {
+                    && startDrag === true
+                    ) {
                     // debugger
                     currentStart.val = 10;
                     graph.nodes[c][r].val = 1;
@@ -299,12 +305,10 @@ function myMove(e){
                     boundY = r;
                 }
                 else if (wallsEnabled === false && weightsEnabled === false && graph.nodes[c][r].val !== 1 
-                    && ((currentEnd.x * (nodeW + 1) < posx)
-                    && (posx < currentEnd.x * (nodeW + 3) + 3* nodeW)
-                    && (posy > currentEnd.y * (nodeH + 1))
-                    && (posy < currentEnd.y * (nodeH + 3) + 3* nodeH)
+                    
                     && (c !== boundX || r !== boundY) //possibly affect dragging quality of end
-                    )) {
+                    && endDrag === true
+                    ) {
                     // debugger
                     currentEnd.val = 10;
                     graph.nodes[c][r].val = 2;
@@ -321,6 +325,8 @@ function myMove(e){
 
 function mouseUp(){
     canvas.onmousemove = null;
+    startDrag = false;
+    endDrag = false;
 }
 
 function getMousePosition(canv, event){
