@@ -176,6 +176,7 @@ function dijkstrasTraversal(graph, source, draw){
         draw();
     }
     interval = setInterval(traversal, 40)
+    DIJKSTRAID = interval;
     console.log("done");
 }
 

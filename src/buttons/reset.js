@@ -14,6 +14,9 @@ function reset(graph, currentStart, currentEnd) {
 
     graph.ending = currentEnd;
     graph.ending.val = 2;
+    clearInterval(DIJKSTRAID);
+    clearInterval(DFSID);
+    clearInterval(BFSID);
 
     
     // window.stop();

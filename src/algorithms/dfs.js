@@ -17,6 +17,7 @@ function depthFirstSearch(graph, draw) {
         }
         if (node === graph.ending || stack.length === 0){
             clearInterval(interval);
+            // clearInterval(RUNNINGINTERVALID);
             // other logice`
             // debugger
             stack = [];//clearing stack once it ends. maybe delete this to show history
@@ -50,6 +51,7 @@ function depthFirstSearch(graph, draw) {
     }
     
     interval = setInterval(addToStack, 40)
+    DFSID = interval;
     console.log("donezo");
     // debugger
 }

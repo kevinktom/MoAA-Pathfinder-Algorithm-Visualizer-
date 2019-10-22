@@ -52,6 +52,7 @@ function breadthFirstSearch(graph, draw) {
     }
 
     interval = setInterval(addToQueue, 40)
+    BFSID = interval;
     console.log("donezo");
     // debugger
 }
