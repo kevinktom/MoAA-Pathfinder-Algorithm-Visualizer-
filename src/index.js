@@ -94,7 +94,7 @@ let nodeW = 20;
 let nodeH = 20;
 
 let graphRows = 31;
-let graphColumns = 63;
+let graphColumns = 57;
 
 let boundX = 0;
 let boundY = 0;
