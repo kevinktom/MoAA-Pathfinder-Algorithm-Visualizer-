@@ -1,7 +1,7 @@
 body{
     font-family: 'Montserrat', sans-serif;
     margin: 0 auto;
-    background: #7f9c96;
+    background: #a9cdc4;
     width: 100vw;
 }
 
@@ -15,9 +15,9 @@ body{
     border: black solid 2px;
     height: 710px;
     position: relative;
-    left: 120px;
+    left: 260px;
     border-radius: 3px;
-    background: #4d7c8a;
+    background: #8addce;
 }
 
 button{
@@ -52,7 +52,9 @@ button:focus {outline:0}
     font-size: 45px;
     position: relative;
     justify-content: center;
-    right: 235px;
+    right: 187px;
+    color: white;
+    text-shadow: 1px 1px black;
 }
 
 #footer{
@@ -76,7 +78,7 @@ button:focus {outline:0}
 
 #app{
     position: relative;
-    left: 55px;
+    left: 250px;
     top: 26px;
 }
 
@@ -90,6 +92,7 @@ button:focus {outline:0}
     position: absolute;
     top: 0;
     font-size: 20px;
+    box-shadow: 1px 0px 0px 1px black;
 }
 
 #sidepanelButtons{
@@ -100,11 +103,12 @@ button:focus {outline:0}
     justify-content: center;
     background: pink;
     font-size: 20px;
+    box-shadow: 1px 0px 0px 1px black;
 }
 
 #legend{
     position: relative;
-    left: 70px;
+    left: 126px;
     bottom: 36px;
 }
 

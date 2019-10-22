@@ -22,15 +22,15 @@ function depthFirstSearch(graph, draw) {
             // debugger
             stack = [];//clearing stack once it ends. maybe delete this to show history
             draw()
-            console.log("made it to the end")
+            // console.log("made it to the end")
             return;
         } else if (visited.has(node)) {
             return;
         }
         node = stack.pop();
-        console.log(stack)
-        console.log(visited)
-        console.log("----------------------")
+        // console.log(stack)
+        // console.log(visited)
+        // console.log("----------------------")
         // console.log(graph.ending)
         visited.add(node);
         // stack.push(...node.neighbors);
@@ -52,7 +52,7 @@ function depthFirstSearch(graph, draw) {
     
     interval = setInterval(addToStack, 40)
     DFSID = interval;
-    console.log("donezo");
+    // console.log("donezo");
     // debugger
 }
 

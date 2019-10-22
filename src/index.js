@@ -21,15 +21,18 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     let dfs = document.getElementById("dfs");
     dfs.onclick = () => {
+        keepwalls(graph, currentStart, currentEnd);
         depthFirstSearch(graph, draw);
     }
 
     let bfs = document.getElementById("bfs");
     bfs.onclick = () => {
+        keepwalls(graph, currentStart, currentEnd);
         breadthFirstSearch(graph, draw);
     }
     let dijkstras = document.getElementById("dijkstras");
     dijkstras.onclick = () => {
+        keepwalls(graph, currentStart, currentEnd);
         dijkstrasTraversal(graph, graph.starting.key, draw);
     }
 
@@ -82,14 +85,16 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 
-let WIDTH = 1200;
-let HEIGHT = 800;
+// let WIDTH = 1200;
+// let HEIGHT = 800;
+let WIDTH = 1700;
+let HEIGHT = 780;
 
 let nodeW = 20;
 let nodeH = 20;
 
 let graphRows = 31;
-let graphColumns = 56;
+let graphColumns = 63;
 
 let boundX = 0;
 let boundY = 0;
@@ -99,7 +104,7 @@ let boundY = 0;
 let graph = new GraphNodes();
 // debugger
 
-graph.nodes[14][15].val = 1;
+graph.nodes[21][15].val = 1;
 graph.nodes[graphColumns-15][15].val = 2;
 
 function rect(x,y,w,h, state){
@@ -218,7 +223,8 @@ function mouseDown(e){
                     boundX = c;
                     boundY = r;
                     startDrag = true;
-                    // console.log(startDrag)
+                    
+                    console.log(startDrag)
                 }
                 else if (wallsEnabled === false && weightsEnabled === false && graph.nodes[c][r].val !== 1 && graph.nodes[c][r].val === 2
                     && ((currentEnd.x * (nodeW + 3) < posx)
@@ -235,6 +241,7 @@ function mouseDown(e){
                     boundX = c;
                     boundY = r;
                     endDrag = true;
+                    console.log(endDrag)
                 }
                 
                 

@@ -22,15 +22,15 @@ function breadthFirstSearch(graph, draw) {
             // debugger
             queue = [];//clearing queue once it ends. maybe delete this to show history
             draw()
-            console.log("made it to the end")
+            // console.log("made it to the end")
             return;
         } else if (visited.has(node)) {
             return;
         }
         node = queue.shift();
-        console.log(queue)
-        console.log(visited)
-        console.log("----------------------")
+        // console.log(queue)
+        // console.log(visited)
+        // console.log("----------------------")
         // console.log(graph.ending)
         visited.add(node);
         // queue.push(...node.neighbors);
@@ -53,7 +53,7 @@ function breadthFirstSearch(graph, draw) {
 
     interval = setInterval(addToQueue, 40)
     BFSID = interval;
-    console.log("donezo");
+    // console.log("donezo");
     // debugger
 }
 

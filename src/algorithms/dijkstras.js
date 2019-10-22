@@ -161,7 +161,7 @@ function dijkstrasTraversal(graph, source, draw){
         if (node === end || pathNodes.length === 0){
             clearInterval(interval);
             draw()
-            console.log("end of dijkstras")
+            // console.log("end of dijkstras")
             return;
         }
         node = pathNodes.shift();
@@ -177,7 +177,7 @@ function dijkstrasTraversal(graph, source, draw){
     }
     interval = setInterval(traversal, 40)
     DIJKSTRAID = interval;
-    console.log("done");
+    // console.log("done");
 }
 
 export default dijkstrasTraversal;

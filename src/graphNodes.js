@@ -4,8 +4,8 @@ class GraphNodes{
         this.determineNeighbors = this.determineNeighbors.bind(this);
         this.nodeGenerator = this.nodeGenerator.bind(this);
         this.nodes = this.nodeGenerator();
-        this.starting = this.nodes[14][15];
-        this.ending = this.nodes[41][15];
+        this.starting = this.nodes[21][15];
+        this.ending = this.nodes[48][15];
         // this.determineNeighbors();
         
     }
@@ -14,7 +14,7 @@ class GraphNodes{
         let nodes = [];
         let boxW = 20;
         let boxH = 20
-        for(let i = 0; i < 56; i++){
+        for(let i = 0; i < 63; i++){
             nodes.push([]);
             for(let n = 0; n < 31; n++){
                nodes[i].push(new Node(10, [i,n], i*(boxW+3), n*(boxH+3)));
@@ -53,7 +53,7 @@ class GraphNodes{
                 let neighbor = [node.x + position[0], node.y + position[1]]
                 // console.log(neighbor)
                 // debugger
-                if (((neighbor[0]) >= 0 && (neighbor[0]) < 56 && (neighbor[1]) >= 0 && (neighbor[1]) < 31) && !node.neighbors.includes(nodes[neighbor[0]][neighbor[1]]) ){
+                if (((neighbor[0]) >= 0 && (neighbor[0]) < 63 && (neighbor[1]) >= 0 && (neighbor[1]) < 31) && !node.neighbors.includes(nodes[neighbor[0]][neighbor[1]]) ){
                     node.neighbors.push(nodes[neighbor[0]][neighbor[1]]);
                 }
 
