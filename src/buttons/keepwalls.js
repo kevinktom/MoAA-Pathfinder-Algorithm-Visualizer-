@@ -5,9 +5,11 @@ function keepwalls(graph, currentStart, currentEnd) {
         row.forEach(node => {
             if (node.val !== 50 && node.val !==300 && node.val !== 350){
                 node.val = 10;
+                node.weight = 1;
             }
             else if (node.val === 350) {
                 node.val = 300;
+                node.weight = 8;
             }
         })
     })

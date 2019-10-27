@@ -4,6 +4,7 @@ function reset(graph, currentStart, currentEnd) {
     graph.nodes.forEach(row => {
         row.forEach(node => {
             node.val = 10;
+            node.weight = 1;
         })
     })
     // graph.nodes[0][0].val = 1;

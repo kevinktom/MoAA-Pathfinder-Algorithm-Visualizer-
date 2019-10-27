@@ -112,7 +112,7 @@ function dijkstras(graph, source) {
             }
         }
     }
-
+    debugger
     return { distance, previous };
 }
 
@@ -148,15 +148,18 @@ function dijkstrasTraversal(graph, source, draw){
     };
 
     let allNodes = graph.nodes.myFlatten();
+    // debugger
 
     let pathNodes = []
     path.forEach(key => {
         allNodes.forEach(node => {
             if(key === node.key){
                 pathNodes.push(node);
+                console.log(node.key)
             }
         }
     )})
+    // console.log(pathNodes);
     function traversal(){
         if (node === end || pathNodes.length === 0){
             clearInterval(interval);
