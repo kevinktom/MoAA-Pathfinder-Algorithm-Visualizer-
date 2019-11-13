@@ -14,7 +14,7 @@ MoAA which stands for Museum of Algorithmic Art is a Pathfinder Algorithm Visual
 ![Alt Text](https://media.giphy.com/media/fAhOFk3AKL0nC3RaCa/giphy.gif)
 
 
-* 
+* Dijkstra's Algorithm is weighted, meaning that it takes into account the cost of traversing weighted nodes. This guarantees the shortest path from start to end in a more realistic representation of searching. 
 
 ```
 function dijkstrasTraversal(graph, source, draw){
@@ -42,32 +42,25 @@ function dijkstrasTraversal(graph, source, draw){
  )})
 ```
 
-## Wireframe
+## Algorithms
 ------------
-MoAA will have a single page canvas. The User can select the different algorithms on the right panel. The generate button will be used to start the algorithm's search for the end point and the clear button will be used to reset the canvas to a blank one and clear the current maze. 
+* Depth-first Search
+* Breadth-first Search
+* Dijkstra's Algorithm
 
-![alt text](https://github.com/kevinktom/MoAA/blob/master/wireframe.png)
-
-## Architectures and Technologies
+## Technologies
 ---------------------------------
-* Vanilla Javascript
-* D3 for visualization
-* React
+* Vanilla JavaScript
+* Canvas.js
 
-## Timeline
+## Future Updates
 -----------
-Tuesday - Research D3 and MDN Dom Manipulation and familiarize myself with the searching algorithms
+* A* Search Algorithm
+* Greedy Best-first Search Algorithm
 
-Wednesday - Create the canvas and framework for how the nodes behave
 
-Thursday - Implement functionality of each algorithm
+Contact Me
+-----------------------
+Email: KevinKTom@gmail.com
 
-Friday - Create ability for users to create walls and the generate and clear buttons
-
-Weekend - Polish up core functionality and work on bonus features
-
-## Bonus Features
-* Allow User to scale the size of the grid/maze
-* Add feature of giving nodes weights so that the efficiency of Dijkstra's algorithm in comparison to the other algorithms
-* Add an option for all algorthms to run at the same time
-
+Github: https://github.com/kevinktom 
