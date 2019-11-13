@@ -146,11 +146,9 @@ function dijkstrasTraversal(graph, source, draw){
         });
         return flattened;
     };
-
     let allNodes = graph.nodes.myFlatten();
-    // debugger
-
     let pathNodes = []
+
     path.forEach(key => {
         allNodes.forEach(node => {
             if(key === node.key){
@@ -159,28 +157,24 @@ function dijkstrasTraversal(graph, source, draw){
             }
         }
     )})
-    // console.log(pathNodes);
+
     function traversal(){
         if (node === end || pathNodes.length === 0){
             clearInterval(interval);
             draw()
-            // console.log("end of dijkstras")
             return;
         }
         node = pathNodes.shift();
-
         if (node.val === 10) {
             node.val = 75;
         }
         else if (node.val === 300){
             node.val = 350;
         }
-
         draw();
     }
     interval = setInterval(traversal, 40)
     DIJKSTRAID = interval;
-    // console.log("done");
 }
 
 export default dijkstrasTraversal;
