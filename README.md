@@ -16,6 +16,32 @@ MoAA which stands for Museum of Algorithmic Art is a Pathfinder Algorithm Visual
 
 * 
 
+```
+function dijkstrasTraversal(graph, source, draw){
+    let {distance, previous} = dijkstras(graph, source)
+    let start = graph.starting;
+    let end = graph.ending;
+    let path = [end.key];
+    let interval = null;
+    let node = start;
+    
+    while(path[path.length - 1] !== start.key){
+        path.push(previous[path[path.length - 1]]);
+    }
+    path = path.reverse().slice(1);
+
+    let allNodes = graph.nodes.myFlatten();
+    let pathNodes = []
+    
+    path.forEach(key => {
+        allNodes.forEach(node => {
+            if(key === node.key){
+                pathNodes.push(node);
+            }
+        }
+ )})
+```
+
 ## Wireframe
 ------------
 MoAA will have a single page canvas. The User can select the different algorithms on the right panel. The generate button will be used to start the algorithm's search for the end point and the clear button will be used to reset the canvas to a blank one and clear the current maze. 
