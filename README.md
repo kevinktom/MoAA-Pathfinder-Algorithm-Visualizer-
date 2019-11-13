@@ -2,14 +2,19 @@
 
 ## Overview
 -----------
-MoAA which stands for Museum of Algorithmic Art is a Path Finder project that showcases the performances of search algorithms. A start and end point can be selected by the User as well as any walls that may block certain nodes. The User is able to select an algorithm and generate a visualization of an algorithm reaching the end point from the start. The canvas starts off blank and once the User clicks to generate, the selected algorithm begins to traverse through the maze. 
+[![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
 
-## Functionality & MVP
+MoAA which stands for Museum of Algorithmic Art is a Pathfinder Algorithm Visualizer that showcases the performances of search algorithms, specifically highlighting the efficiency of Dijkstra's Algorithm. Start and end points can be selected by the User, walls can be created to block the traversal to certain nodes, and weights can be added that represent a higher cost of traversing certain nodes. The User is able to select an algorithm and generate a visualization of an algorithm reaching the end point from the start. MoAA is built using vanilla JavaScript and Canvas.js.
+
+### Website: [MoAA](https://kevinktom.github.io/MoAA/)
+
+## Dijkstra's Traversal
 ----------------------
-* Blank Canvas with the User being able to create start and end points and walls to disable nodes from being accessed by the algorithm
-* User can select different algorithms which will yield different results
-* User can reset the Canvas to a blank one
-* Once a path is found, the shortest path will be highlighted
+
+![Alt Text](https://media.giphy.com/media/fAhOFk3AKL0nC3RaCa/giphy.gif)
+
+
+* 
 
 ## Wireframe
 ------------
