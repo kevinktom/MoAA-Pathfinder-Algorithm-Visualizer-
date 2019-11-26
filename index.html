@@ -22,10 +22,34 @@
 <body>
     <div id="header">MoAA - A Pathfinder Algorithm Visualizer</div>
     <div id="main">
+
+        
+        <div id="myModal" class="modal">
+        
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p id="modal-title">Museum of Algorithmic Art</p>
+                <p id="modal-description">MoAA is a pathfinder algorithm visualizer that showcases the performances of search algorithms, specifically highlighting the
+                efficiency of Dijkstra's Algorithm.</p>
+                <ul id="modal-ul">
+                    <li>Start and endpoints can be rearranged by dragging the green and red squares to the desired positions.</li>
+                    <li>Walls can be created to block the traversal to certain nodes by selecting "add walls" in the sidebar and clicking and
+                    dragging your mouse across the graph.</li>
+                    <li>Weights can be added that represent a higher cost of traversing certain nodes by selecting "add weight" in the sidebar
+                    and clicking and dragging your mouse across the graph. (Weighted nodes cost 8x more than an unweighted node to traverse)</li>
+                    <li>Select an algorithm to start the visualization.</li>
+                </ul>
+            </div>
+        
+        </div>
+
         <div id="maindiv">
             <canvas id="app" width='1440' height= '730'></canvas>
             <img src="./app/assets/images/chart.png" id='legend'>
+            
         </div>
+        <button id="myBtn">Help</button>
         <div id="sidepanel">
             <div id="sidepanelAlgo">Algorithms</div>
             <button id="dfs">DFS</button>
@@ -37,6 +61,7 @@
             <button id="addwalls">Add Walls</button>
             <button id="addweights">Add Weight</button>
         </div>
+        
     </div>
     <div id="footer">
         <div id="links">

@@ -112,7 +112,7 @@ function dijkstras(graph, source) {
             }
         }
     }
-    debugger
+    // debugger
     return { distance, previous };
 }
 
