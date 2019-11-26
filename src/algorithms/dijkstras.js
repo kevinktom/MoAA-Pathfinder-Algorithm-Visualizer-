@@ -112,7 +112,7 @@ function dijkstras(graph, source) {
             }
         }
     }
-    // debugger
+   
     return { distance, previous };
 }
 
@@ -153,7 +153,7 @@ function dijkstrasTraversal(graph, source, draw){
         allNodes.forEach(node => {
             if(key === node.key){
                 pathNodes.push(node);
-                console.log(node.key)
+                // console.log(node.key)
             }
         }
     )})
