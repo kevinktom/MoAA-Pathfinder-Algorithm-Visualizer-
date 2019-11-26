@@ -224,7 +224,7 @@ function mouseDown(e){
                     boundY = r;
                     startDrag = true;
                     
-                    console.log(startDrag)
+                    // console.log(startDrag)
                 }
                 else if (wallsEnabled === false && weightsEnabled === false && graph.nodes[c][r].val !== 1 && graph.nodes[c][r].val === 2
                     && ((currentEnd.x * (nodeW + 3) < posx)
@@ -241,7 +241,7 @@ function mouseDown(e){
                     boundX = c;
                     boundY = r;
                     endDrag = true;
-                    console.log(endDrag)
+                    // console.log(endDrag)
                 }
                 
                 
